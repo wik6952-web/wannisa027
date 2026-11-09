@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>การประยุกต์ใช้ 6 ด้าน | การประยุกต์ใช้ AI</title>
+  <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;500;600;700&family=Sarabun:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <style>
+    :root { --theme-color: #06b6d4; --theme-glow: rgba(6, 182, 212, 0.45); --theme-bg-soft: rgba(6, 182, 212, 0.14); }
+    body { background-color: #050814; color: #e2e8f0; font-family: 'Sarabun', sans-serif; }
+    h1, h2, h3, .font-display { font-family: 'Prompt', sans-serif; }
+
+    .theme-text { color: var(--theme-color); }
+    .theme-bg { background-color: var(--theme-color); }
+
+    /* Pure CSS Click-to-Change-Color Category Menu */
+    .css-cat-radio { position: absolute; opacity: 0; pointer-events: none; }
+    .css-cat-label {
+      --item-color: #06b6d4;
+      --item-bg: rgba(6, 182, 212, 0.16);
+      --item-glow: rgba(6, 182, 212, 0.45);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0.65rem 0.85rem; border-radius: 0.75rem; border: 1px solid transparent;
+      color: #cbd5e1; cursor: pointer; transition: all 0.3s ease;
+    }
+    .css-cat-label:hover { background: rgba(255, 255, 255, 0.05); color: #fff; }
+    .css-cat-radio:checked + .css-cat-label {
+      background: linear-gradient(90deg, var(--item-bg) 0%, rgba(12, 19, 38, 0.7) 100%);
+      border-color: var(--item-color); color: #fff;
+      box-shadow: 0 0 16px var(--item-glow); transform: translateX(4px);
+    }
+    .css-cat-radio:checked + .css-cat-label .cat-icon {
+      background-color: var(--item-color); color: #050814;
+    }
+
+    .glass-panel { background: rgba(12, 19, 38, 0.8); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.08); }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+  <!-- Header -->
+  <header class="sticky top-0 z-40 glass-panel border-b border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-3">
+        <div class="w-9 h-9 rounded-xl theme-bg flex items-center justify-center text-slate-950 font-bold"><i class="fa-solid fa-brain"></i></div>
+        <span class="font-display font-bold text-lg text-white">การประยุกต์ใช้ <span class="theme-text">AI</span></span>
+      </a>
+      <nav class="flex items-center gap-2 text-xs sm:text-sm font-display">
+        <a href="index.html" class="px-3 py-1.5 rounded-lg text-slate-300 hover:bg-slate-800 transition">หน้าแรก</a>
+        <a href="applications.html" class="px-3 py-1.5 rounded-lg bg-cyan-500/20 text-cyan-300 border border-cyan-500/40 font-semibold">การประยุกต์ใช้</a>
+        <a href="playground.html" class="px-3 py-1.5 rounded-lg text-slate-300 hover:bg-slate-800 transition">ทดลองใช้ AI</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- 3-Column Layout -->
+  <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 py-6">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+
+      <!-- Column 1 (Left): Pure CSS Color-Changing Category Menu -->
+      <aside class="lg:col-span-3 space-y-4">
+        <div class="glass-panel rounded-2xl p-4">
+          <h2 class="font-display text-xs font-semibold uppercase tracking-wider text-slate-300 mb-1">เลือกหมวดหมู่ (CSS เปลี่ยนสี)</h2>
+          <p class="text-[11px] text-slate-400 mb-3">คลิกเพื่อเปลี่ยนสีแถบเมนูและกรองเนื้อหา</p>
+
+          <div class="space-y-2">
+            <div>
+              <input type="radio" name="cat" id="c-all" value="all" class="css-cat-radio" checked>
+              <label for="c-all" class="css-cat-label">
+                <span class="flex items-center gap-2.5 text-sm font-display"><i class="cat-icon fa-solid fa-border-all w-7 h-7 rounded-lg bg-slate-800 flex items-center justify-center text-xs"></i> ทั้งหมด</span>
+                <span class="text-xs text-slate-400">6</span>
+              </label>
+            </div>
+            <div>
+              <input type="radio" name="cat" id="c-health" value="health" class="css-cat-radio">
+              <label for="c-health" class="css-cat-label" style="--item-color:#10b981; --item-bg:rgba(16,185,129,0.16); --item-glow:rgba(16,185,129,0.45);">
+                <span class="flex items-center gap-2.5 text-sm font-display"><i class="cat-icon fa-solid fa-heart-pulse w-7 h-7 rounded-lg bg-slate-800 text-emerald-400 flex items-center justify-center text-xs"></i> การแพทย์</span>
+              </label>
+            </div>
+            <div>
+              <input type="radio" name="cat" id="c-business" value="business" class="css-cat-radio">
+              <label for="c-business" class="css-cat-label" style="--item-color:#06b6d4; --item-bg:rgba(6,182,212,0.16); --item-glow:rgba(6,182,212,0.45);">
+                <span class="flex items-center gap-2.5 text-sm font-display"><i class="cat-icon fa-solid fa-chart-line w-7 h-7 rounded-lg bg-slate-800 text-cyan-400 flex items-center justify-center text-xs"></i> ธุรกิจและการตลาด</span>
+              </label>
+            </div>
+            <div>
+              <input type="radio" name="cat" id="c-edu" value="edu" class="css-cat-radio">
+              <label for="c-edu" class="css-cat-label" style="--item-color:#f59e0b; --item-bg:rgba(245,158,11,0.16); --item-glow:rgba(245,158,11,0.45);">
+                <span class="flex items-center gap-2.5 text-sm font-display"><i class="cat-icon fa-solid fa-graduation-cap w-7 h-7 rounded-lg bg-slate-800 text-amber-400 flex items-center justify-center text-xs"></i> การศึกษา</span>
+              </label>
+            </div>
+            <div>
+              <input type="radio" name="cat" id="c-creative" value="creative" class="css-cat-radio">
+              <label for="c-creative" class="css-cat-label" style="--item-color:#a855f7; --item-bg:rgba(168,85,247,0.16); --item-glow:rgba(168,85,247,0.45);">
+                <span class="flex items-center gap-2.5 text-sm font-display"><i class="cat-icon fa-solid fa-wand-magic-sparkles w-7 h-7 rounded-lg bg-slate-800 text-purple-400 flex items-center justify-center text-xs"></i> สร้างสรรค์สื่อ</span>
+              </label>
+            </div>
+            <div>
+              <input type="radio" name="cat" id="c-coding" value="coding" class="css-cat-radio">
+              <label for="c-coding" class="css-cat-label" style="--item-color:#3b82f6; --item-bg:rgba(59,130,246,0.16); --item-glow:rgba(59,130,246,0.45);">
+                <span class="flex items-center gap-2.5 text-sm font-display"><i class="cat-icon fa-solid fa-code w-7 h-7 rounded-lg bg-slate-800 text-blue-400 flex items-center justify-center text-xs"></i> เขียนโปรแกรม</span>
+              </label>
+            </div>
+            <div>
+              <input type="radio" name="cat" id="c-industry" value="industry" class="css-cat-radio">
+              <label for="c-industry" class="css-cat-label" style="--item-color:#f43f5e; --item-bg:rgba(244,63,94,0.16); --item-glow:rgba(244,63,94,0.45);">
+                <span class="flex items-center gap-2.5 text-sm font-display"><i class="cat-icon fa-solid fa-robot w-7 h-7 rounded-lg bg-slate-800 text-rose-400 flex items-center justify-center text-xs"></i> อุตสาหกรรม</span>
+              </label>
+            </div>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Column 2 (Center): Filtered Case Studies -->
+      <section class="lg:col-span-6 space-y-4">
+        <div class="glass-panel rounded-2xl p-4 flex items-center justify-between">
+          <h1 id="catHeader" class="font-display font-bold text-lg text-white">การประยุกต์ใช้ AI ทั้งหมด 6 ด้าน</h1>
+          <a href="playground.html" class="text-xs text-cyan-400 hover:underline">ไปทดลองใช้ AI →</a>
+        </div>
+        <div id="listContainer" class="space-y-4"></div>
+      </section>
+
+      <!-- Column 3 (Right): Recommended Tools & Next Page -->
+      <aside class="lg:col-span-3 space-y-4">
+        <div class="glass-panel rounded-2xl p-5">
+          <h3 class="font-display font-semibold text-sm text-white mb-3">เครื่องมือ AI ยอดนิยม</h3>
+          <ul class="space-y-2.5 text-xs">
+            <li class="p-2.5 rounded-xl bg-slate-900 border border-slate-800">
+              <div class="font-semibold text-white">Google Gemini</div>
+              <div class="text-slate-400">วิเคราะห์ข้อมูลและสร้างเนื้อหาครบวงจร</div>
+            </li>
+            <li class="p-2.5 rounded-xl bg-slate-900 border border-slate-800">
+              <div class="font-semibold text-white">Midjourney</div>
+              <div class="text-slate-400">สร้างภาพกราฟิกจากข้อความ</div>
+            </li>
+            <li class="p-2.5 rounded-xl bg-slate-900 border border-slate-800">
+              <div class="font-semibold text-white">GitHub Copilot</div>
+              <div class="text-slate-400">ผู้ช่วยเขียนและตรวจสอบโค้ด</div>
+            </li>
+          </ul>
+          <a href="playground.html" class="mt-4 w-full bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-display font-semibold text-xs py-2.5 rounded-xl flex items-center justify-center gap-2 transition">
+            <span>หน้าถัดไป: ทดลองใช้ AI</span>
+            <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+      </aside>
+
+    </div>
+  </main>
+
+  <footer class="border-t border-slate-800 py-4 text-center text-xs text-slate-500">
+    © 2026 เว็บไซต์การประยุกต์ใช้ AI — หน้าที่ 2 จาก 3 (การประยุกต์ใช้ 6 ด้าน)
+  </footer>
+
+  <script>
+    const data = [
+      { cat: 'health', label: 'การแพทย์', color: '#10b981', title: 'AI วินิจฉัยภาพถ่ายรังสีและคัดกรองโรค', desc: 'วิเคราะห์ภาพเอกซเรย์และ MRI เพื่อตรวจหาความผิดปกติได้แม่นยำและลดเวลารอคอยของผู้ป่วย' },
+      { cat: 'business', label: 'ธุรกิจและการตลาด', color: '#06b6d4', title: 'ระบบวิเคราะห์พฤติกรรมลูกค้าและแชทบอท', desc: 'พยากรณ์ยอดขาย แนะนำสินค้าเฉพาะบุคคล และตอบกลับลูกค้าอัตโนมัติตลอด 24 ชั่วโมง' },
+      { cat: 'edu', label: 'การศึกษา', color: '#f59e0b', title: 'ติวเตอร์ส่วนตัว AI และสรุปบทเรียน', desc: 'ปรับระดับเนื้อหาให้เหมาะกับผู้เรียนแต่ละคน พร้อมสร้างแบบฝึกหัดและสรุปเอกสารวิจัยอัตโนมัติ' },
+      { cat: 'creative', label: 'สร้างสรรค์สื่อ', color: '#a855f7', title: 'Generative AI สร้างภาพและวิดีโอโฆษณา', desc: 'เปลี่ยนคำอธิบายข้อความให้เป็นภาพประกอบ วิดีโอ และเสียงพากย์คุณภาพสูงในไม่กี่วินาที' },
+      { cat: 'coding', label: 'เขียนโปรแกรม', color: '#3b82f6', title: 'ผู้ช่วยเขียนโค้ดและตรวจสอบช่องโหว่', desc: 'ช่วยเติมโค้ดอัตโนมัติ อธิบายการทำงานของโปรแกรม และตรวจหาจุดผิดพลาดได้รวดเร็ว' },
+      { cat: 'industry', label: 'อุตสาหกรรม', color: '#f43f5e', title: 'หุ่นยนต์ตรวจสอบคุณภาพและซ่อมบำรุงล่วงหน้า', desc: 'ใช้กล้อง AI ตรวจจับตำหนิสินค้าบนสายพานและแจ้งเตือนก่อนเครื่องจักรเสียหาย' }
+    ];
+
+    const container = document.getElementById('listContainer');
+    function render(filter = 'all') {
+      const items = filter === 'all' ? data : data.filter(d => d.cat === filter);
+      container.innerHTML = items.map(item => `
+        <div class="glass-panel rounded-2xl p-5 border-l-4" style="border-left-color: ${item.color}">
+          <span class="text-xs font-semibold px-2.5 py-0.5 rounded-full" style="background:${item.color}22; color:${item.color}">${item.label}</span>
+          <h3 class="font-display font-semibold text-base text-white mt-2 mb-1">${item.title}</h3>
+          <p class="text-sm text-slate-300 leading-relaxed">${item.desc}</p>
+        </div>
+      `).join('');
+    }
+
+    document.querySelectorAll('.css-cat-radio').forEach(r => {
+      r.addEventListener('change', e => render(e.target.value));
+    });
+    render();
+  </script>
+</body>
+</html>

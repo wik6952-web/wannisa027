@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ทดลองใช้งาน AI | การประยุกต์ใช้ AI</title>
+  <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;500;600;700&family=Sarabun:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <style>
+    body { background-color: #050814; color: #e2e8f0; font-family: 'Sarabun', sans-serif; }
+    h1, h2, h3, .font-display { font-family: 'Prompt', sans-serif; }
+    .glass-panel { background: rgba(12, 19, 38, 0.8); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.08); }
+
+    /* Pure CSS Role Selector Menu */
+    .role-radio { position: absolute; opacity: 0; }
+    .role-label {
+      display: block; padding: 0.75rem 1rem; border-radius: 0.75rem;
+      border: 1px solid rgba(255, 255, 255, 0.08); cursor: pointer; transition: all 0.25s;
+    }
+    .role-label:hover { background: rgba(255, 255, 255, 0.05); }
+    .role-radio:checked + .role-label {
+      background: rgba(168, 85, 247, 0.18); border-color: #a855f7;
+      box-shadow: 0 0 15px rgba(168, 85, 247, 0.4); color: #fff;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+  <!-- Header -->
+  <header class="sticky top-0 z-40 glass-panel border-b border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-3">
+        <div class="w-9 h-9 rounded-xl bg-purple-500 flex items-center justify-center text-slate-950 font-bold"><i class="fa-solid fa-brain"></i></div>
+        <span class="font-display font-bold text-lg text-white">การประยุกต์ใช้ <span class="text-purple-400">AI</span></span>
+      </a>
+      <nav class="flex items-center gap-2 text-xs sm:text-sm font-display">
+        <a href="index.html" class="px-3 py-1.5 rounded-lg text-slate-300 hover:bg-slate-800 transition">หน้าแรก</a>
+        <a href="applications.html" class="px-3 py-1.5 rounded-lg text-slate-300 hover:bg-slate-800 transition">การประยุกต์ใช้</a>
+        <a href="playground.html" class="px-3 py-1.5 rounded-lg bg-purple-500/20 text-purple-300 border border-purple-500/40 font-semibold">ทดลองใช้ AI</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- 3-Column Layout -->
+  <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 py-6">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+
+      <!-- Column 1 (Left): Pure CSS Role Selector -->
+      <aside class="lg:col-span-3 space-y-4">
+        <div class="glass-panel rounded-2xl p-4">
+          <h2 class="font-display text-xs font-semibold uppercase tracking-wider text-purple-400 mb-3">1. เลือกบทบาท AI (CSS Menu)</h2>
+          <div class="space-y-2.5">
+            <div>
+              <input type="radio" name="role" id="r-mkt" value="นักการตลาด AI" class="role-radio" checked>
+              <label for="r-mkt" class="role-label">
+                <div class="font-display text-sm font-semibold">นักกลยุทธ์การตลาด</div>
+                <div class="text-xs text-slate-400">คิดแคมเปญและวิเคราะห์ลูกค้า</div>
+              </label>
+            </div>
+            <div>
+              <input type="radio" name="role" id="r-edu" value="ติวเตอร์ AI" class="role-radio">
+              <label for="r-edu" class="role-label">
+                <div class="font-display text-sm font-semibold">ผู้ช่วยสรุปบทเรียน</div>
+                <div class="text-xs text-slate-400">ย่อยเนื้อหายากให้เข้าใจง่าย</div>
+              </label>
+            </div>
+            <div>
+              <input type="radio" name="role" id="r-dev" value="โปรแกรมเมอร์ AI" class="role-radio">
+              <label for="r-dev" class="role-label">
+                <div class="font-display text-sm font-semibold">ผู้ช่วยเขียนโค้ด</div>
+                <div class="text-xs text-slate-400">สร้างฟังก์ชันและตรวจสอบโค้ด</div>
+              </label>
+            </div>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Column 2 (Center): Interactive AI Console -->
+      <section class="lg:col-span-6 space-y-4">
+        <div class="glass-panel rounded-2xl p-6 border border-slate-700/80">
+          <div class="flex items-center justify-between mb-4">
+            <h1 class="font-display font-bold text-xl text-white">ทดลองสั่งงาน AI Playground</h1>
+            <span class="text-xs text-emerald-400 bg-emerald-500/10 px-2.5 py-1 rounded-full">พร้อมใช้งาน</span>
+          </div>
+
+          <label class="block text-xs text-slate-300 mb-2">พิมพ์คำสั่ง (Prompt) ของคุณ:</label>
+          <textarea id="promptBox" rows="4" class="w-full bg-slate-900 border border-slate-700 rounded-xl p-3 text-sm text-white focus:outline-none focus:border-purple-400 mb-3">ช่วยวางแผนแคมเปญโปรโมทร้านเบเกอรี่โฮมเมดบนโซเชียลมีเดีย</textarea>
+
+          <button onclick="generateReply()" class="w-full bg-purple-500 hover:bg-purple-400 text-slate-950 font-display font-semibold text-sm py-2.5 rounded-xl transition flex items-center justify-center gap-2 mb-4">
+            <i class="fa-solid fa-bolt"></i>
+            <span>ประมวลผลคำตอบ AI</span>
+          </button>
+
+          <div class="bg-slate-950 border border-slate-800 rounded-xl p-4">
+            <div class="text-[11px] font-mono text-slate-500 mb-2">AI_OUTPUT_CONSOLE</div>
+            <div id="outputConsole" class="text-sm text-slate-200 leading-relaxed min-h-[140px] whitespace-pre-line">
+              กดปุ่ม "ประมวลผลคำตอบ AI" เพื่อดูผลลัพธ์จำลอง...
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Column 3 (Right): Prompt Templates -->
+      <aside class="lg:col-span-3 space-y-4">
+        <div class="glass-panel rounded-2xl p-5">
+          <h3 class="font-display font-semibold text-sm text-white mb-3">คลิกใช้คำสั่งตัวอย่าง</h3>
+          <div class="space-y-2">
+            <button onclick="useTemplate('ช่วยวางแผนแคมเปญโปรโมทร้านเบเกอรี่โฮมเมดบนโซเชียลมีเดีย')" class="w-full text-left p-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-800 text-xs text-slate-300 transition">
+              "ช่วยวางแผนแคมเปญโปรโมทร้านเบเกอรี่..."
+            </button>
+            <button onclick="useTemplate('สรุปหลักการทำงานของ Machine Learning แบบสั้นๆ เข้าใจง่าย')" class="w-full text-left p-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-800 text-xs text-slate-300 transition">
+              "สรุปหลักการทำงานของ Machine Learning..."
+            </button>
+            <button onclick="useTemplate('เขียนโค้ด HTML ปุ่มกดเปลี่ยนสีด้วย CSS')" class="w-full text-left p-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-800 text-xs text-slate-300 transition">
+              "เขียนโค้ด HTML ปุ่มกดเปลี่ยนสีด้วย CSS"
+            </button>
+          </div>
+          <a href="index.html" class="mt-4 w-full bg-slate-800 hover:bg-slate-700 text-white font-display text-xs py-2.5 rounded-xl flex items-center justify-center gap-2 transition">
+            <i class="fa-solid fa-house"></i>
+            <span>กลับสู่หน้าแรก</span>
+          </a>
+        </div>
+      </aside>
+
+    </div>
+  </main>
+
+  <footer class="border-t border-slate-800 py-4 text-center text-xs text-slate-500">
+    © 2026 เว็บไซต์การประยุกต์ใช้ AI — หน้าที่ 3 จาก 3 (ทดลองใช้งาน AI)
+  </footer>
+
+  <script>
+    function useTemplate(text) {
+      document.getElementById('promptBox').value = text;
+    }
+
+    function generateReply() {
+      const prompt = document.getElementById('promptBox').value.trim();
+      const role = document.querySelector('.role-radio:checked').value;
+      const out = document.getElementById('outputConsole');
+
+      if (!prompt) { out.textContent = 'กรุณาพิมพ์คำสั่งก่อนครับ'; return; }
+
+      out.textContent = `กำลังประมวลผลในบทบาท [${role}]...`;
+      const reply = `🤖 ตอบกลับโดย ${role}:\n\nจากคำสั่ง: "${prompt}"\n\n1. วิเคราะห์เป้าหมาย: กำหนดกลุ่มผู้ใช้งานและผลลัพธ์ที่ต้องการให้ชัดเจน\n2. แนวทางปฏิบัติ: ใช้เครื่องมือ AI ช่วยสร้างต้นแบบและทดสอบผลลัพธ์อย่างต่อเนื่อง\n3. สรุปผล: ช่วยลดเวลาดำเนินงานลงได้มากกว่า 50% และเพิ่มความแม่นยำในการตัดสินใจ`;
+
+      setTimeout(() => {
+        out.textContent = '';
+        let i = 0;
+        const timer = setInterval(() => {
+          out.textContent += reply.charAt(i);
+          i++;
+          if (i >= reply.length) clearInterval(timer);
+        }, 18);
+      }, 500);
+    }
+  </script>
+</body>
+</html>
